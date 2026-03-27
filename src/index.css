@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 桜が舞う背景（ゆっくり版） */
+.sakura-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url("/sakura.png");
+  background-repeat: repeat;
+  background-size: 360px;
+  opacity: 0.30;
+  pointer-events: none;
+
+  animation:
+    sakura-fall 120s linear infinite,
+    sakura-sway 18s ease-in-out infinite;
+}
+
+/* 下に落ちる（超ゆっくり） */
+@keyframes sakura-fall {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 3000px;
+  }
+}
+
+/* 左右にふわっと揺れる */
+@keyframes sakura-sway {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
